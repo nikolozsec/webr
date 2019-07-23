@@ -39,4 +39,4 @@ URLs must start with `http://` or `https://`
 
 ### Comments ###
 
-Tool is in development. Any feedback is more than welcome!
+webbr is under development. Any feedback is more than welcome!
