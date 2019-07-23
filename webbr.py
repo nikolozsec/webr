@@ -4,62 +4,44 @@ from pandas import ExcelWriter
 from pandas import ExcelFile
 import requests
 
-src = pd.read_excel('url.xlsx', sheet_name='Sheet1')
+# File location
+src = pd.read_excel('jde_websites.xlsx', sheet_name='Sheet1')
 
-values = src['websites'].values
-
+# Count number of rows in excel file
 countRow = src.shape[0]
 
+# Print a message
+print("webbr Created by Nikoloz Kokhreidze")
+print("#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#")
 print("Checking {} URLs: ".format(countRow))
 
+# Create empty list
 urlList = []
 codeList = []
 
+# Go throught the File
 for i in src.index:
-    urlList.append(src['websites'][i])
+    urlList.append(src['input_urls'][i])
+    print(src['input_urls'][i])
     try:
-        r = requests.get(src['websites'][i])
+        r = requests.get(src['input_urls'][i])
         status = r.status_code
         codeList.append(status)
-    except requests.exceptions.RequestException as error: 
+        print(status)
+    except requests.ConnectionError as error: 
         print(error)
         codeList.append("error")
 
-
+# Print list of URLs and HTTP Codes
 print(urlList)
 print(codeList)
 
-urlArray = np.asarray(urlList)
-codeArray = np.asarray(codeList)
-print(urlArray)
+# Put output in data
+data = {'urls': urlList, 'status': codeList}
 
-df = pd.DataFrame({'urls': [urlArray],'codes':[codeArray]})
+# Create a dataframe and write to new excel file
+df = pd.DataFrame(data=data, index=None)
+print(df)
 writer = ExcelWriter('url_checked.xlsx')
 df.to_excel(writer,'Sheet1', index=False)
 writer.save()
-
-# try:
-#     r = requests.get('http://www.google.com/nothere')
-#     r.raise_for_status()
-# except requests.exceptions.HTTPError as err:
-#     print err
-#     sys.exit(1)
-
-
-    # print(src['websites'][i])
-    # r = requests.get(src['websites'][i])
-    # print(r.status_code)
-    # df = pd.DataFrame({'urls':src['websites'][i],
-    #                'codes':[r]})
-    # writer = ExcelWriter('url_checked.xlsx')
-    # df.to_excel(writer,'Sheet1',index=False)
-    # writer.save()
-    
-# i = 0
-# while i < count_row :
-#     list.append
-#     print(src['websites'][i])
-#     i += 1
-
-#listWebsites = df['websites']
-#print(listWebsites[0])
