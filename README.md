@@ -4,8 +4,8 @@ webbr is a simple tool that helps you identify if websites are up and running, t
 
 ### Useful for ###
 
-* Vulnerability scanning - allowing you to identify which websites are available
-* Penetration testing - allowing you to identify IP addresses that you can use for infrastructure testing
+* Vulnerability scanning - identify websites/domains that are available from a list
+* Penetration testing - identify IP addresses for domains that you can use for infrastructure testing
 * Creating domain lists
 
 ### Comments ###
