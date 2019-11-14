@@ -1,6 +1,6 @@
-# webbr #
+# webR #
 
-webbr is a simple tool that helps you retrieve http status codes for list of websites, take website screenshots with Chrome
+webR is a simple tool that helps you retrieve http status codes for list of websites, take website screenshots with Chrome
 
 ### Install ####
 
@@ -24,7 +24,7 @@ webbr is a simple tool that helps you retrieve http status codes for list of web
 
 ### Run ###
 
-`python webbr.py`
+`python webr.py`
 
 Source and destination files should be in following format `[title].xlsx`
 
@@ -39,4 +39,4 @@ Table header example:
 
 ### Comments ###
 
-webbr is under development. Any feedback is more than welcome!
+webR is under development. Any feedback is more than welcome!
