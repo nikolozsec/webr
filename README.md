@@ -13,7 +13,7 @@ webR is a simple tool that helps you retrieve http status codes for list of webs
 * Return IP address
 * Write output to specified Excel file
 * Option to take website screenshots with Chrome and store in 'screenshots' directory
-* Screenshots fuinctionality is based on headless Chrome, images will be taken in the background and thus consume less resources
+* Screenshots functionality is based on headless Chrome, images will be taken in the background and thus consume less resources
 
 ### Useful for ###
 
