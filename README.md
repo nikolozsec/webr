@@ -1,6 +1,10 @@
 # webR #
 
-webR is a simple tool that helps you retrieve http status codes for list of websites, take website screenshots with Chrome
+webR is a simple tool that helps you retrieve http status codes for list of websites, take website screenshots with Chrome Driver.
+
+You need to have a Google Chrome browser installed and executable of ChromeDriver which matches yourr browser version.
+
+Get Chrome Driver from: https://sites.google.com/a/chromium.org/chromedriver/downloads
 
 ### Install ####
 
@@ -11,7 +15,7 @@ webR is a simple tool that helps you retrieve http status codes for list of webs
 * Select Excel file with the list of URLs
 * Return HTTP status codes (https://en.wikipedia.org/wiki/List_of_HTTP_status_codes)
 * Return IP address
-* Write output to specified Excel file
+* Write output to Excel file
 * Option to take website screenshots with Chrome and store in 'screenshots' directory
 * Screenshots functionality is based on headless Chrome, images will be taken in the background and thus consume less resources
 
@@ -24,18 +28,9 @@ webR is a simple tool that helps you retrieve http status codes for list of webs
 
 ### Run ###
 
+Put desired URLs in domains.xlsx under input_urls column.
+
 `python webr.py`
-
-Source and destination files should be in following format `[title].xlsx`
-
-When asked to specify the table header for processing, make sure that URLs are listed under it
-
-Table header example:
-
-| this_is_table_header      | X           | Z  |
-| ------------- |:-------------:| -----:|
-| http://example.com    | -| - |
-| https://example2.com   |  -   |  -  |
 
 ### Comments ###
 

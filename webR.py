@@ -21,6 +21,7 @@ chrome_options.add_argument("--disable-infobars")
 chrome_options.add_argument("--disable-extensions") 
 chrome_options.add_argument("--window-size=1366,768")
 chrome_options.add_argument("--disable-dev-shm-usage")
+chrome_options.add_argument('--ignore-certificate-errors')
 
 # Check OS and use relevant driver
 if platform.system() == 'Windows':
@@ -32,9 +33,9 @@ else:
 takeScreens = input("Take website screenshots? (Chrome required) [1] For all websites [2] Only for non HTTP 200 responses (for errors) [3] No screenshots: ")
 
 # Ask for file
-inputFile = input("Source excel file:  ")
-inputColumn = input("Column header:  ")
-outputFile = input("Destination excel file: ")
+inputFile = './domains.xlsx'
+inputColumn = 'input_urls'
+outputFile = './results.xlsx'
 
 # File location
 src = pd.read_excel(inputFile)
@@ -49,8 +50,17 @@ codeList = []
 ipList = []
 
 # Print a message
+
+
+
 print("\n" + "=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#= \n" + "=     webbr by Nikoloz Kokhreidze     = \n" + "=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#= \n")
 print("CHECKING {} ITEMS: \n".format(countRow))
+
+
+# if 'browserVersion' in driver.capabilities:
+#     print(driver.capabilities['browserVersion'])
+# else:
+#     print(driver.capabilities['version'])
 
 # Go throught the File
 for i in src.index:
@@ -91,14 +101,14 @@ for i in src.index:
         driver.save_screenshot('.\\screenshots\\' + domain + screenshotTime + '.png')
         driver.close()
 
-    elif takeScreens == '2' and status != 200:
+    elif takeScreens == '2' and status != 200:        
         driver = webdriver.Chrome(options=chrome_options, executable_path=chrome_driver)
         driver.get(column[i])
         driver.save_screenshot('.\\screenshots\\' + domain + screenshotTime + '.png')
         driver.close()
 
     print(str(domain) + " -  " + str(status) + " - " + str(ip))
-
+    
 # Put output in data
 data = {'URL': urlList, 'Status': codeList, 'IP': ipList}
 
