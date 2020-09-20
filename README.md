@@ -1,14 +1,6 @@
 # webR #
 
-webR is a simple tool that helps you retrieve http status codes for list of websites, take website screenshots with Chrome Driver.
-
-You need to have a Google Chrome browser installed and executable of ChromeDriver which matches yourr browser version.
-
-Get Chrome Driver from: https://sites.google.com/a/chromium.org/chromedriver/downloads
-
-### Install ####
-
-`pip install -r requirements.txt`
+webR is a simple tool that helps you retrieve HTTP status codes for list of URLs, take URL screenshots with Chrome Driver.
 
 ### Features ###
 
@@ -26,12 +18,17 @@ Get Chrome Driver from: https://sites.google.com/a/chromium.org/chromedriver/dow
 * Troubleshooting website issues in batch
 * Creating domain lists
 
+### Install ####
+
+`pip install -r requirements.txt`
+
+You need to have a Google Chrome browser installed and executable of ChromeDriver which matches your browser version.
+
+Get Chrome Driver from: https://sites.google.com/a/chromium.org/chromedriver/downloads and put it in 'driver' folder.
+
+
 ### Run ###
 
 Put desired URLs in domains.xlsx under input_urls column.
 
 `python webr.py`
-
-### Comments ###
-
-webR is under development. Any feedback is more than welcome!
