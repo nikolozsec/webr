@@ -1,6 +1,6 @@
-# webR #
+# webr #
 
-webR is a simple tool that helps you retrieve HTTP status codes for list of URLs, take URL screenshots with Chrome Driver.
+webr is a simple tool that helps you retrieve HTTP status codes for list of URLs, take URL screenshots with Chrome Driver.
 
 ### Features ###
 
@@ -31,4 +31,4 @@ Get Chrome Driver from: https://sites.google.com/a/chromium.org/chromedriver/dow
 
 Put desired URLs in domains.xlsx under input_urls column.
 
-`python webr.py`
+`python.py`
