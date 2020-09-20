@@ -51,7 +51,7 @@ ip_list = []
 
 # Print a message
 
-print("\n" + "=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#= \n" + "=     webbr by Nikoloz Kokhreidze     = \n" + "=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#= \n")
+print("\n" + "=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=  \n" + "=     webr by Nikoloz Kokhreidze | @nikolozsec    = \n" + "=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=  \n")
 print("CHECKING {} ITEMS: \n".format(countRow))
 
 
@@ -107,7 +107,7 @@ data = {'URL': url_list, 'STATUS': code_list, 'IP': ip_list}
 
 # Create a dataframe and write to new excel file
 df = pd.DataFrame(data=data, index=None)
-print("\n" + "=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#= \n" + "= RESULT:                             = \n" + "=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#= \n" + str(df))
+print("\n" + "=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=  \n" + "=                   RESULTS                       = \n" + "=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=  \n" + str(df))
 writer = ExcelWriter(output_file)
-df.to_excel(writer,'webbr', index=False)
+df.to_excel(writer,'webr', index=False)
 writer.save()
