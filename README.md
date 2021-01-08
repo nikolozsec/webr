@@ -1,18 +1,22 @@
 # webr #
 
-webr is a simple tool that helps you retrieve HTTP status codes for list of URLs, take URL screenshots with Chrome Driver.
+webr helps you retrieve HTTP status codes for list of URLs, take URL screenshots and analyze issues with websites.
 
 ### Features ###
 
 * Return HTTP status codes (https://en.wikipedia.org/wiki/List_of_HTTP_status_codes) for the list of URLs
-* Return IP address for the list of URLs
+* Return IP address (Private/Public) for the list of URLs.
 * Write output to Excel file
 * Option to take website screenshots with Chrome and store in 'screenshots' directory
 * Screenshots functionality is based on headless Chrome, images will be taken in the background and thus consume less resources
 
-### Useful for ###
+### NOTE:###
 
-* Threat hunting - dentify IP addresses for domains that you can use for infrastructure testing
+IP lookups will be conducted by your device, which might expose your IP address to the target URL/IP.
+
+### Use Cases ###
+
+* Threat hunting - identify IP addresses for domains that you can use for infrastructure testing
 * Vulnerability scanning - identify live websites/domains 
 * Penetration testing - identify IP addresses for domains that you can use for infrastructure testing
 * Troubleshooting website issues in batch
