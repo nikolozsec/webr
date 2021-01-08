@@ -1,6 +1,6 @@
 # webr #
 
-webr helps you retrieve HTTP status codes for list of URLs, take URL screenshots and analyze issues with websites.
+Mass domain analyzer for threat hunting, troubleshooting and taking screenshots.
 
 ### Features ###
 
