@@ -1,4 +1,4 @@
-import os
+import os, sys, stat
 import socket
 import platform
 import requests
@@ -13,11 +13,13 @@ from selenium.webdriver.chrome.options import Options
 # Check OS and use relevant driver
 if platform.system() == 'Windows':
     chrome_driver = '.\\driver\\chromedriver.exe'
+elif platform.system() == 'Darwin':
+    chrome_driver = './driver/chromedriver_mac64'
 else:
-    chrome_driver = './driver/chromedriver'
+    chrome_driver = './driver/chromedriver_linux64'
 
-# Define time for unique screenshot names
-screenshotTime = datetime.strftime(datetime.now(), ' %Y-%m-%d %H-%M-%S')
+# Define time format for unique screenshot file names
+screenshot_time = datetime.strftime(datetime.now(), ' %Y-%m-%d %H-%M-%S')
 
 # Chrome Driver configuration for taking screenshots
 chrome_options = Options()
@@ -71,10 +73,10 @@ for i in src.index:
         ip = socket.gethostbyname(domain)
         ip_list.append(ip)
 
-# If error, write error in excel
+# If socket.error, write error in excel
     except socket.error as error:
-        ip_list.append("error")
-        ip = "error"
+        ip_list.append("socket error")
+        ip = "socket error"
 
 # Try to send request
     try:
@@ -82,22 +84,22 @@ for i in src.index:
         status = r.status_code
         code_list.append(status)
 
-# If error, write error in excel
+# If ConnectionError, write error in excel
     except requests.ConnectionError as error: 
-        code_list.append("error")
-        status = "error"
+        code_list.append("connection error")
+        status = "connection error"
 
 # Take screenshots based on user input
     if take_screens == '1':
         driver = webdriver.Chrome(options=chrome_options, executable_path=chrome_driver)
         driver.get(column[i])
-        driver.save_screenshot('.\\screenshots\\' + domain + screenshotTime + '.png')
+        driver.save_screenshot(os.path.join('screenshots', domain + screenshot_time + '.png'))
         driver.close()
 
     elif take_screens == '2' and status != 200:        
         driver = webdriver.Chrome(options=chrome_options, executable_path=chrome_driver)
         driver.get(column[i])
-        driver.save_screenshot('.\\screenshots\\' + domain + screenshotTime + '.png')
+        driver.save_screenshot(os.path.join('screenshots', domain + screenshot_time + '.png'))
         driver.close()
 
     print(str(domain) + " -  " + str(status) + " - " + str(ip))
