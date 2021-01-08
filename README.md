@@ -1,6 +1,6 @@
-# webr #
+![logo](https://i.imgur.com/FeYoYqQ.png)
 
-Mass domain analyzer for threat hunting, troubleshooting and taking screenshots.
+Analyze domains from Excel list, save status codes, IP addresses and screenshots.
 
 ### Features ###
 
