@@ -10,7 +10,7 @@ webr helps you retrieve HTTP status codes for list of URLs, take URL screenshots
 * Option to take website screenshots with Chrome and store in 'screenshots' directory
 * Screenshots functionality is based on headless Chrome, images will be taken in the background and thus consume less resources
 
-### NOTE:###
+### NOTE: ###
 
 IP lookups will be conducted by your device, which might expose your IP address to the target URL/IP.
 
